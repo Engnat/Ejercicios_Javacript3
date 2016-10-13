@@ -33,7 +33,6 @@ var calcular = function(fun){
     };
   };//Fin
 
-
 //STRINGS
 var manipularString = function(i){
   return function(){
@@ -69,7 +68,19 @@ var manipularString = function(i){
 };
 //Fin
 
+//BUSCAR PRIMOS
 
+var buscarPrimos = function(){
+  var numero = document.querySelector("#primos").value;
+  var result = null;
+  if(numero%2===0){
+    result = "El número "+ numero + " es primo";
+  }else {
+    result = "El número "+ numero + " no es primo";
+  }
+  document.querySelector("#primo_result").innerHTML = result;
+  console.log(result);
+};
 
 
 
@@ -78,10 +89,13 @@ document.addEventListener("DOMContentLoaded",function(){
   var btn_sumatoria = document.querySelector("#btn_sumatoria");
   var btn_revertir = document.querySelector("#revertir");
   var btn_buscar = document.querySelector("#buscar");
+  var btn_numero_primo = document.querySelector("#numeroPrimo");
   btn_factorial.addEventListener("click" , calcular(validarDecimal));
   btn_sumatoria.addEventListener("click" , calcular());
   btn_revertir.addEventListener("click" , manipularString(1));
   btn_buscar.addEventListener("click" , manipularString());
+  btn_numero_primo.addEventListener("click" , buscarPrimos);
+
 
 
 });
